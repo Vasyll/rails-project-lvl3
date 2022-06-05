@@ -1,0 +1,8 @@
+- if flash.any?
+  .container.mb-2
+    .d-flex.flex-wrap.align-items-center.py-2.border-bottom
+      - flash.each do |type, msg|
+        - if type == 'alert'
+          .alert.alert-danger = msg
+        - else
+          .alert.alert-info = msg
