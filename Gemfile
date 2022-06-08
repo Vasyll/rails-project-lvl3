@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'faker'
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n'
 gem 'rollbar'
@@ -40,7 +40,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Use sqlite3 as the database for Active Record
-  gem 'dotenv-rails'
+  # gem 'dotenv-rails'
   gem 'rubocop-rails'
   gem 'slim_lint'
   gem 'sqlite3', '~> 1.4'

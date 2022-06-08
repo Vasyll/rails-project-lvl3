@@ -11,9 +11,9 @@ class Web::AuthController < Web::ApplicationController
 
     if user.save
       sign_in user
-      redirect_to root_path, notice: 'Успешно' # t('.success')
+      redirect_to root_path, notice: t('.success')
     else
-      redirect_to root_path, alert: 'Что-то пошло не так....' # t('.failure')
+      redirect_to root_path, alert: t('.failure')
     end
   end
 

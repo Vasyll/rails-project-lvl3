@@ -1,0 +1,6 @@
+ru:
+  web:
+    auth:
+      collback:
+        failure: Ошибка аутентификации
+        success: Успешно
