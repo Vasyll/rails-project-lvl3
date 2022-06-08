@@ -3,3 +3,4 @@
     .navbar.navbar-expand-md.navbar-light.me-auto
       = link_to root_path, class: 'navbar-brand.me-md-4'
         = image_tag('logo.png', width: '30', alt: t('.hexlet_logo'))
+      = link_to 'Войти', callback_auth_path(:github), method: 'post', class: 'navbar-brand.me-md-4'
