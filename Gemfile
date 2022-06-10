@@ -25,7 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'active_storage_validations'
 gem 'faker'
+gem 'image_processing'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n'
