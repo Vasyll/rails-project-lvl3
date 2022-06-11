@@ -5,7 +5,11 @@ class Web::AuthController < Web::ApplicationController
     email = auth[:info][:email].downcase
     existing_user = User.find_by(email: email)
 
-    redirect_to root_path if existing_user
+    if existing_user
+      sign_in existing_user
+      redirect_to root_path, notice: t('.success')
+      return
+    end
 
     user = User.new name: auth[:info][:name], email: auth[:info][:email]
 
@@ -15,6 +19,11 @@ class Web::AuthController < Web::ApplicationController
     else
       redirect_to root_path, alert: t('.failure')
     end
+  end
+
+  def logout
+    sign_out
+    redirect_to root_path, notice: t('.success')
   end
 
   private

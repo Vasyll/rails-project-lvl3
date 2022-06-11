@@ -1,0 +1,9 @@
+- @bulletins.each do |bulletin|
+  = bulletin.title
+  = bulletin.description
+  - if bulletin.image_attachment
+    = image_tag bulletin.image
+  = link_to t('show'), bulletin_path(bulletin), class: 'me-4'
+  = link_to t('edit'), edit_bulletin_path(bulletin), class: 'me-4'
+
+= link_to 'Новое объявление', new_bulletin_path, class: 'btn btn-primary'
