@@ -9,16 +9,8 @@
             .card.shadow-sm
               - if bulletin.image_attachment
                 = image_tag bulletin.image, height: 200, class: 'card-img-top x-object-fit-cover'
-              .card-body 
-                h5.card-title 
+              .card-body
+                h5.card-title
                   = link_to bulletin.title, bulletin_path(bulletin)
                 h6.card-subtitle.mb-2.text-muted
                   = time_ago_in_words(bulletin.created_at)
-
-- @bulletins.each do |bulletin|
-  = bulletin.title
-  = bulletin.description
-  - if bulletin.image_attachment
-    = image_tag bulletin.image
-  = link_to t('show'), bulletin_path(bulletin), class: 'me-4'
-  = link_to t('edit'), edit_bulletin_path(bulletin), class: 'me-4'
