@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>BulletinBoard</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,10 +10,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class='d-flex flex-column h-100'>
     <%= render 'layouts/shared/nav' %>
     <%= render 'layouts/shared/flash' %>
 
-    <%= yield %>
+    <main>
+      <div class="mt-4 mb-5 pb-5">
+        <div class='container'>
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+    <%= render 'layouts/shared/footer' %>
   </body>
 </html>

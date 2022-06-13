@@ -5,6 +5,8 @@
   = f.input :title
   = f.input :description
   = f.association :category
-  = f.input :image do
+  - if bulletin.image_attachment
+    = image_tag bulletin.image, class: 'img-thumbnail mb-2'
+  = f.input :image, required: true do
     = f.file_field :image, class: 'form-control'
-  = f.button :submit, t('.submit'), class: 'btn btn-primary mb-4'
+  = f.button :submit, class: 'btn btn-primary mb-4'

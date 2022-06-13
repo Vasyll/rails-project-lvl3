@@ -15,3 +15,5 @@ require 'faker'
     name: Faker::Commerce.vendor
   )
 end
+
+User.create(name: 'Vyacheslav Ryzhov', email: 'chju@mail.ru', admin: true)

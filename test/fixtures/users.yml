@@ -3,7 +3,9 @@
 one:
   name: MyString
   email: MyString
+  admin: false
 
 two:
   name: MyString
   email: MyString
+  admin: true

@@ -8,5 +8,13 @@ Rails.application.routes.draw do
 
     root 'bulletins#index'
     resources :bulletins, only: %i[index show new create edit update]
+    resources :profiles, only: %i[index]
+
+    namespace :admin do 
+      root 'home#index'
+      resources :bulletins
+      resources :categories
+      resources :users
+    end
   end
 end

@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    attributes:
+      bulletin:
+        category: Category
+        description: Description
+        image: Image
+        title: Title
+    models:
+      category:
+        one: Category
+        other: Categories
+      bulletin:
+        one: Bulletin
+        other: Bulletins
