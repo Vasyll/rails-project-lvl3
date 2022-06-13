@@ -10,4 +10,20 @@
       .li.nav-item
         = link_to 'Все пользователи', admin_users_path, class: 'nav-link.link-dark'
   .col-md-9
-    h1 Категории
+    h1 class='h2 mb-4' Категории
+    = link_to 'Добавить категорию', new_admin_category_path
+    .row.mt-2
+      table.table.table-borderless
+        thead
+          tr
+            th Id
+            th Название
+            th Действия
+        tbody
+          - @categories.each do |category|
+            tr
+              td = category.id
+              td = category.name
+              td
+                = link_to 'Редактировать', edit_admin_category_path(category)
+                = link_to 'Удалить', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }

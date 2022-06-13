@@ -8,6 +8,7 @@
       .li.nav-item
         = link_to 'Все категории', admin_categories_path, class: 'nav-link.link-dark'
       .li.nav-item
-        = link_to 'Все пользователи', admin_users_path, class: 'nav-link.link-dark.active'
+        = link_to 'Все пользователи', admin_users_path, class: 'nav-link.link-dark'
   .col-md-9
-    h1 class='h2 mb-4' Пользователи
+    h1 class='h2 mb-4' Редактировать категорию
+    == render 'form', category: @category, url: admin_category_path

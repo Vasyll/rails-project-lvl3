@@ -10,4 +10,19 @@
       .li.nav-item
         = link_to 'Все пользователи', admin_users_path, class: 'nav-link.link-dark'
   .col-md-9
-    h1 Объявления
+    h1 class='h2 mb-4' Объявления
+    .row.mt-2
+      table.table.table-borderless
+        thead
+          tr
+            th Название
+            th Состояние
+            th Дата публикации
+            th Действия
+        tbody
+          - @bulletins&.each do |bulletin|
+            tr
+              td = bulletin.title
+              td
+              td = time_ago_in_words(bulletin.created_at)
+              td

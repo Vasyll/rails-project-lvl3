@@ -6,6 +6,8 @@ en:
         description: Description
         image: Image
         title: Title
+      category:
+        name: Name
     models:
       category:
         one: Category
