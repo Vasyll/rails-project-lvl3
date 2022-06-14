@@ -3,3 +3,19 @@
     .p-3.p-lg-5.pt-lg-0
       .mb-4
         h2 Мои объявления
+        table.table.table-borderless
+          thead
+            tr
+              th Название
+              th Состояние
+              th Дата публикации
+              th Действия
+          tbody
+            - @bulletins&.each do |bulletin|
+              tr
+                td = bulletin.title
+                td = t(".#{bulletin.aasm_state}")
+                td = time_ago_in_words(bulletin.created_at)
+                td
+                  = link_to 'Показать', bulletin_path(bulletin), class: 'me-1'
+                  = link_to 'Редактировать', edit_bulletin_path(bulletin), class: 'me-1'

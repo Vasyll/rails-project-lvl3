@@ -2,6 +2,8 @@ en:
   activerecord:
     attributes:
       bulletin:
+        aasm_state:
+          draft: Draft
         category: Category
         description: Description
         image: Image

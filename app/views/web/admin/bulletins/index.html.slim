@@ -11,6 +11,6 @@ h1 class='h2 mb-4' Объявления
       - @bulletins&.each do |bulletin|
         tr
           td = bulletin.title
-          td
+          td = t(".#{bulletin.aasm_state}")
           td = time_ago_in_words(bulletin.created_at)
           td
