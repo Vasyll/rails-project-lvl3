@@ -1,0 +1,25 @@
+doctype html
+html.h-100
+  head
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type' /
+    title BulletinBoard
+    meta content='width=device-width,initial-scale=1' name='viewport' /
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  body.d-flex.flex-column.h-100
+    = render 'layouts/shared/nav'
+    = render 'layouts/shared/flash'
+    main.container
+      .row
+        .col-md-3
+          ul.nav.flex-column.nav-pills
+            = nav_menu_item 'Объявления на модерации', admin_root_path
+            = nav_menu_item 'Все объявления', admin_bulletins_path
+            = nav_menu_item 'Все категории', admin_categories_path
+            = nav_menu_item 'Все пользователи', admin_users_path
+        .col-md-9
+          = yield
+    = render 'layouts/shared/footer'

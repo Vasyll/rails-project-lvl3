@@ -1,13 +1,18 @@
-.row
-  .col-md-3
-    ul.nav.flex-column.nav-pills
-      .li.nav-item
-        = link_to 'Объявления на модерации', admin_root_path, class: 'nav-link.link-dark'
-      .li.nav-item
-        = link_to 'Все объявления', admin_bulletins_path, class: 'nav-link.link-dark'
-      .li.nav-item
-        = link_to 'Все категории', admin_categories_path, class: 'nav-link.link-dark'
-      .li.nav-item
-        = link_to 'Все пользователи', admin_users_path, class: 'nav-link.link-dark.active'
-  .col-md-9
-    h1 class='h2 mb-4' Пользователи
+h1 class='h2 mb-4' Пользователи
+.row.mt-2
+  table.table.table-borderless
+    thead
+      tr
+        th Имя
+        th Email
+        th Статус
+        th Действия
+    tbody
+      - @users.each do |user|
+        tr
+          td = user.name
+          td = user.email
+          td = user.admin? ? 'Администратор' : 'Пользователь'
+          td
+            = link_to 'Редактировать', edit_admin_user_path(user), class: 'me-1'
+            = link_to 'Удалить', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger'
