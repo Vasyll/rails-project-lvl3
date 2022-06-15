@@ -13,19 +13,19 @@ Rails.application.routes.draw do
         patch 'archive'
       end
     end
-    resources :profiles, only: %i[show]
+    resource :profile, only: :show
 
     namespace :admin do
       root 'home#index'
-      resources :bulletins do
+      resources :bulletins, only: :index do
         member do
           patch 'publish'
           patch 'reject'
           patch 'archive'
         end
       end
-      resources :categories
-      resources :users
+      resources :categories, only: %i[index new create edit update destroy]
+      resources :users, only: %i[index edit update destroy]
     end
   end
 end
