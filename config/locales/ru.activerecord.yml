@@ -2,11 +2,14 @@ ru:
   activerecord:
     attributes:
       bulletin:
-        aasm_state:
-          draft: Черновик
         category: Категория
         description: Описание
         image: Иллюстрация
+        aasm_state/draft: Черновик
+        aasm_state/under_moderation: На модерации
+        aasm_state/published: Опубликован
+        aasm_state/rejected: Возвращен
+        aasm_state/archived: Архивирован
         title: Заголовок
       category:
         name: Наименование

@@ -2,7 +2,8 @@
 
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def index
-    @bulletins = Bulletin.all
+    @q = Bulletin.all.ransack(params[:q])
+    @bulletins = @q.result
   end
 
   def publish

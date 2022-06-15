@@ -1,4 +1,15 @@
 h1 class='h2 mb-4' Объявления
+= search_form_for @q, url: url_for(controller: 'admin/bulletins', action: 'index') do |f|
+  .row.my-2
+    .col-6
+      = f.input :title_cont, label: false
+      .small.form-text.text-muted Искать по названию объявления
+    .col-3
+      = f.input :aasm_state_eq, as: :select, collection: Bulletin.aasm.states.map(&:name), label: false
+      .small.form-text.text-muted По состоянию
+    .col-3
+      = f.submit 'Искать', class: 'btn btn-primary me-2'
+      = link_to 'Сброс', url_for, class: 'btn btn-outline-primary'
 .row.mt-2
   table.table.table-borderless
     thead
@@ -11,7 +22,7 @@ h1 class='h2 mb-4' Объявления
       - @bulletins&.each do |bulletin|
         tr
           td = link_to bulletin.title, bulletin_path(bulletin)
-          td = t(".#{bulletin.aasm_state}")
+          td = bulletin.aasm.human_state
           td = time_ago_in_words(bulletin.created_at)
           td
             = link_to 'Показать', bulletin_path(bulletin), class: 'me-2'
