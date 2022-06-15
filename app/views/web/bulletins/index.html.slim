@@ -4,6 +4,17 @@
       .mb-4
         h2 Объявления
         hr
+      = search_form_for @q, url: url_for(controller: 'bulletins', action: 'index') do |f|
+        .row.my-2
+          .col-6
+            = f.input :title_cont, label: false
+            .small.form-text.text-muted Искать по названию объявления
+          .col-3
+            = f.input :category_id_eq, as: :select, collection: Category.all, label: false
+            .small.form-text.text-muted По состоянию
+          .col-3
+            = f.submit 'Искать', class: 'btn btn-primary me-2'
+            = link_to 'Сброс', url_for, class: 'btn btn-outline-primary'
       .row.mt-2
         - @bulletins.each do |bulletin|
           .col-3.pt-2
