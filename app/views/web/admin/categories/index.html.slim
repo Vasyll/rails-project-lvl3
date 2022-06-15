@@ -13,5 +13,5 @@ h1 class='h2 mb-4' Категории
           td = category.id
           td = category.name
           td
-            = link_to 'Редактировать', edit_admin_category_path(category), class: 'me-1'
+            = link_to 'Редактировать', edit_admin_category_path(category), class: 'me-2'
             = link_to 'Удалить', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger'

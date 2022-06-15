@@ -10,7 +10,10 @@ h1 class='h2 mb-4' Объявления
     tbody
       - @bulletins&.each do |bulletin|
         tr
-          td = bulletin.title
+          td = link_to bulletin.title, bulletin_path(bulletin)
           td = t(".#{bulletin.aasm_state}")
           td = time_ago_in_words(bulletin.created_at)
           td
+            = link_to 'Показать', bulletin_path(bulletin), class: 'me-2'
+            - unless bulletin.archived?
+              = link_to 'Архивировать', archive_admin_bulletin_path(bulletin), method: :patch, data: { confirm: 'Подтвердить архивацию' }, class: 'text-danger'

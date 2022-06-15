@@ -9,6 +9,9 @@ h1 class='h2 mb-4' Объявления на модерации
     tbody
       - @bulletins&.each do |bulletin|
         tr
-          td = bulletin.title
+          td = link_to bulletin.title, bulletin_path(bulletin)
           td = time_ago_in_words(bulletin.created_at)
           td
+            = link_to 'Опубликовать', publish_admin_bulletin_path(bulletin), method: :patch, data: { confirm: 'Подтвердить публикацию' }, class: 'me-2'
+            = link_to 'Вернуть', reject_admin_bulletin_path(bulletin), method: :patch, data: { confirm: 'Подтвердить возврат' }, class: 'me-2'
+            = link_to 'В архив', archive_admin_bulletin_path(bulletin), method: :patch, data: { confirm: 'Подтвердить архивацию' }, class: 'text-danger'

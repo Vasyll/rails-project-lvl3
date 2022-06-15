@@ -3,6 +3,20 @@
     .p-3.p-lg-5.pt-lg-0
       .mb-4
         h2 Мои объявления
+        hr
+      = link_to 'Добавить объявление', new_bulletin_path
+      = search_form_for @q, url: url_for(controller: 'profiles', action: 'index') do |f|
+        .row.my-2
+          .col-6
+            = f.input :title_cont, label: false
+            .small.form-text.text-muted Искать по названию объявления
+          .col-3
+            = f.input :aasm_state_eq, as: :select, collection: Bulletin.aasm.states.map(&:name), label: false
+            .small.form-text.text-muted По состоянию
+          .col-3
+            = f.submit 'Искать', class: 'btn btn-primary me-2'
+            = link_to 'Сброс', url_for, class: 'btn btn-outline-primary'
+      .row.mt-2
         table.table.table-borderless
           thead
             tr
@@ -17,5 +31,9 @@
                 td = t(".#{bulletin.aasm_state}")
                 td = time_ago_in_words(bulletin.created_at)
                 td
-                  = link_to 'Показать', bulletin_path(bulletin), class: 'me-1'
-                  = link_to 'Редактировать', edit_bulletin_path(bulletin), class: 'me-1'
+                  = link_to 'Показать', bulletin_path(bulletin), class: 'me-2'
+                  = link_to 'Редактировать', edit_bulletin_path(bulletin), class: 'me-2'
+                  - if bulletin.draft? || bulletin.rejected?
+                    = link_to 'На модерацию', to_moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
+                  - unless bulletin.archived?
+                    = link_to 'В архив', archive_bulletin_path(bulletin), method: :patch, data: { confirm: 'Подтвердить архивацию' }, class: 'text-danger'

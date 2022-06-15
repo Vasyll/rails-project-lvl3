@@ -10,19 +10,19 @@ class Bulletin < ApplicationRecord
     state :rejected
     state :archived
 
-    event :to_moderation do
-      transitions from: :draft, to: :under_moderation
+    event :to_moderate do
+      transitions from: %i[draft rejected], to: :under_moderation
     end
 
-    event :to_publish do
+    event :publish do
       transitions from: :under_moderation, to: :published
     end
 
-    event :to_rework do
+    event :reject do
       transitions from: :under_moderation, to: :rejected
     end
 
-    event :to_archive do
+    event :archive do
       transitions from: %i[draft under_moderation published rejected archived], to: :archived
     end
   end
