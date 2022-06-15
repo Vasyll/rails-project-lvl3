@@ -11,7 +11,7 @@
             = f.input :title_cont, label: false
             .small.form-text.text-muted Искать по названию объявления
           .col-3
-            = f.input :aasm_state_eq, as: :select, collection: Bulletin.aasm.states.map(&:name), label: false
+            = f.input :state_eq, as: :select, collection: Bulletin.aasm.states.map(&:name), label: false
             .small.form-text.text-muted По состоянию
           .col-3
             = f.submit 'Искать', class: 'btn btn-primary me-2'

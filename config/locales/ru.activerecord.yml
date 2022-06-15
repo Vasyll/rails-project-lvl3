@@ -5,11 +5,11 @@ ru:
         category: Категория
         description: Описание
         image: Иллюстрация
-        aasm_state/draft: Черновик
-        aasm_state/under_moderation: На модерации
-        aasm_state/published: Опубликован
-        aasm_state/rejected: Возвращен
-        aasm_state/archived: Архивирован
+        state/draft: Черновик
+        state/under_moderation: На модерации
+        state/published: Опубликован
+        state/rejected: Возвращен
+        state/archived: Архивирован
         title: Заголовок
       category:
         name: Наименование
