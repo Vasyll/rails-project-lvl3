@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         patch 'archive'
       end
     end
-    resources :profiles, only: %i[index]
+    resources :profiles, only: %i[show]
 
     namespace :admin do
       root 'home#index'
