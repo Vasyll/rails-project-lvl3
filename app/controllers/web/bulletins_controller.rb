@@ -48,18 +48,18 @@ class Web::BulletinsController < Web::ApplicationController
   def to_moderate
     @bulletin = Bulletin.find params[:id]
     if @bulletin.to_moderate!
-      redirect_to profiles_path, notice: t('.success')
+      redirect_to profile_path, notice: t('.success')
     else
-      redirect_to profiles_path, notice: t('.failure')
+      redirect_to profile_path, notice: t('.failure')
     end
   end
 
   def archive
     @bulletin = Bulletin.find params[:id]
     if @bulletin.archive!
-      redirect_to profiles_path, notice: t('.success')
+      redirect_to profile_path, notice: t('.success')
     else
-      redirect_to profiles_path, notice: t('.failure')
+      redirect_to profile_path, notice: t('.failure')
     end
   end
 
