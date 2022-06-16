@@ -1,0 +1,30 @@
+ru:
+  web:
+    bulletins:
+      edit:
+        edit_bulletin: Edit bulletin
+      index:
+        bulletins: Bulletins
+        reset: Reset
+        search: Search
+        search_by_name: Search by name
+        search_by_category: Search by category
+      new:
+        add_bulletin: Add bulletin
+    profiles:
+      show:
+        actions: Actions
+        add_bulletin: Add bulletin
+        archive: Archive
+        condition: Condition
+        confirm_archive: Confirm archive
+        date_of_publication: Date of publication
+        my_bulletin: My bulletin
+        name: Name
+        reset: Reset
+        search: Search
+        edit: Edit
+        search_by_name: Search by name
+        search_by_state: Search by state
+        show: Show
+        to_moderation: To moderation

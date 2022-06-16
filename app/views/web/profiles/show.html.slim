@@ -2,28 +2,28 @@
   .row
     .p-3.p-lg-5.pt-lg-0
       .mb-4
-        h2 Мои объявления
+        h2 = t('.my_bulletin')
         hr
-      = link_to 'Добавить объявление', new_bulletin_path
+      = link_to t('.add_bulletin'), new_bulletin_path
       = search_form_for @q, url: url_for(controller: 'profiles', action: 'show') do |f|
         .row.my-2
           .col-6
             = f.input :title_cont, label: false
-            .small.form-text.text-muted Искать по названию объявления
+            .small.form-text.text-muted = t('.search_by_name')
           .col-3
             = f.input :state_eq, as: :select, collection: Bulletin.aasm.states.map(&:display_name), label: false
-            .small.form-text.text-muted По состоянию
+            .small.form-text.text-muted = t('.search_by_state')
           .col-3
-            = f.submit 'Искать', class: 'btn btn-primary me-2'
-            = link_to 'Сброс', url_for, class: 'btn btn-outline-primary'
+            = f.submit t('.search'), class: 'btn btn-primary me-2'
+            = link_to t('.reset'), url_for, class: 'btn btn-outline-primary'
       .row.mt-2
         table.table.table-borderless
           thead
             tr
-              th Название
-              th Состояние
-              th Дата публикации
-              th Действия
+              th = t('.name')
+              th = t('.condition')
+              th = t('.date_of_publication')
+              th = t('.actions')
           tbody
             - @bulletins&.each do |bulletin|
               tr
@@ -31,9 +31,9 @@
                 td = bulletin.aasm.human_state
                 td = time_ago_in_words(bulletin.created_at)
                 td
-                  = link_to 'Показать', bulletin_path(bulletin), class: 'me-2'
-                  = link_to 'Редактировать', edit_bulletin_path(bulletin), class: 'me-2'
+                  = link_to t('.show'), bulletin_path(bulletin), class: 'me-2'
+                  = link_to t('.edit'), edit_bulletin_path(bulletin), class: 'me-2'
                   - if bulletin.draft? || bulletin.rejected?
-                    = link_to 'На модерацию', to_moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
+                    = link_to t('.to_moderation'), to_moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
                   - unless bulletin.archived?
-                    = link_to 'В архив', archive_bulletin_path(bulletin), method: :patch, data: { confirm: 'Подтвердить архивацию' }, class: 'text-danger'
+                    = link_to t('.archive'), archive_bulletin_path(bulletin), method: :patch, data: { confirm: t('.confirm_archive') }, class: 'text-danger'

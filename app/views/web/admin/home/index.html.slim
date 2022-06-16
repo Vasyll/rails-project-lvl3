@@ -1,17 +1,17 @@
-h1 class='h2 mb-4' Объявления на модерации
+h1 class='h2 mb-4' = t('.bulletins_in_moderation')
 .row.mt-2
   table.table.table-borderless
     thead
       tr
-        th Название
-        th Дата публикации
-        th Действия
+        th = t('.name')
+        th = t('.date_of_publication')
+        th = t('.actions')
     tbody
       - @bulletins&.each do |bulletin|
         tr
           td = link_to bulletin.title, bulletin_path(bulletin)
           td = time_ago_in_words(bulletin.created_at)
           td
-            = link_to 'Опубликовать', publish_admin_bulletin_path(bulletin), method: :patch, data: { confirm: 'Подтвердить публикацию' }, class: 'me-2'
-            = link_to 'Вернуть', reject_admin_bulletin_path(bulletin), method: :patch, data: { confirm: 'Подтвердить возврат' }, class: 'me-2'
-            = link_to 'В архив', archive_admin_bulletin_path(bulletin), method: :patch, data: { confirm: 'Подтвердить архивацию' }, class: 'text-danger'
+            = link_to t('.publish'), publish_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('.confirm_publish') }, class: 'me-2'
+            = link_to t('.reject'), reject_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('.confirm_reject') }, class: 'me-2'
+            = link_to t('.archive'), archive_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('.confirm_archive') }, class: 'text-danger'

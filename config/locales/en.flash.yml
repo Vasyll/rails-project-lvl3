@@ -1,0 +1,37 @@
+en:
+  web:
+    admin:
+      bulletins:
+        archive:
+          success: The bulletin has been archived
+        publish:
+          success: The bulletin has been published
+        reject:
+          success: Bulletin returned for revision
+      categories:
+        create:
+          success: New category added
+        destroy:
+          success: Category deleted
+        update:
+          success: Category changed
+      users:
+        destroy:
+          success: User deleted
+        update:
+          success: User information has been saved
+    auth:
+      callback:
+        failure: Authentication error
+        success: Successfully
+      logout:
+        success: Successfully
+    bulletins:
+      archive:
+        success: The bulletin has been archived
+      create:
+        success: The bulletin has been created
+      to_moderate:
+        success: The bulletin has been sent for moderation
+      update:
+        success: The bulletin has been updated

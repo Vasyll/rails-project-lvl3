@@ -1,0 +1,85 @@
+ru:
+  web:
+    admin:
+      bulletins:
+        index:
+          actions: Действия
+          archive: Архивировать
+          bulletins: Объявления
+          condition: Состояние
+          confirm_archive: Подтвердить архивацию
+          date_of_publication: Дата публикации
+          name: Название
+          reset: Сброс
+          search: Искать
+          search_by_name: Искать по названию объявления
+          search_by_state: По состоянию
+          show: Показать
+      categories:
+        edit:
+          edit_category: Редактировать категорию
+        index:
+          actions: Действия
+          add_category: Добавить категорию
+          are_you_sure: Вы уверены?
+          categories: Категории
+          delete: Удалить
+          edit: Редактировать
+          id: Id
+          name: Название
+        new:
+          new_category: Новая категория
+      home:
+        index:
+          actions: Действия
+          archive: В архив
+          bulletins_in_moderation: Объявления на модерации
+          confirm_archive: Подтвердить архивацию
+          confirm_publish: Подтвердить публикацию
+          confirm_reject: Подтвердить возврат
+          date_of_publication: Дата публикации
+          name: Название
+          publish: Опубликовать
+          reject: Вернуть
+      users:
+        edit:
+          edit_user: Редактировать пользователя
+        index:
+          actions: Действия
+          administrator: Администратор
+          are_you_sure: Вы уверены?
+          delete: Удалить
+          edit: Редактировать
+          email: Email
+          name: Имя
+          status: Статус
+          user: Пользователь
+          users: Пользователи
+    bulletins:
+      edit:
+        edit_bulletin: Редактировать объявление
+      index:
+        bulletins: Объявления
+        reset: Сброс
+        search: Искать
+        search_by_name: Искать по названию объявления
+        search_by_category: По категории
+      new:
+        add_bulletin: Добавить объявление
+    profiles:
+      show:
+        actions: Действия
+        add_bulletin: Добавить объявление
+        archive: В архив
+        condition: Состояние
+        confirm_archive: Подтвердить архивацию
+        date_of_publication: Дата публикации
+        my_bulletin: Мои объявления
+        name: Название
+        reset: Сброс
+        search: Искать
+        edit: Редактировать
+        search_by_name: Искать по названию объявления
+        search_by_state: По состоянию
+        show: Показать
+        to_moderation: На модерацию

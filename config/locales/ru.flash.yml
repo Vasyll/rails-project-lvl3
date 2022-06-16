@@ -3,14 +3,29 @@ ru:
     admin:
       bulletins:
         archive:
-          success: Объявление было успешно заархивировано
+          success: Объявление отправлено в архив
         publish:
           success: Объявление опубликовано
         reject:
           success: Объявление возвращено на доработку
       categories:
+        create:
+          success: Новая категория добавлена
+        destroy:
+          success: Категория удалена
+        update:
+          success: Категория изменена
       users:
+        destroy:
+          success: Пользователь удален
+        update:
+          success: Информация о пользователе сохранена
     auth:
+      callback:
+        failure: Ошибка аутентификации
+        success: Успешно
+      logout:
+        success: Успешно
     bulletins:
       archive:
         success: Объявление отправлено в архив
@@ -20,4 +35,3 @@ ru:
         success: Объявление отправлено на модерацию
       update:
         success: Объявление обновлено
-    profiles:

@@ -2,19 +2,19 @@
   .row
     .p-3.p-lg-5.pt-lg-0
       .mb-4
-        h2 Объявления
+        h2 = t('.bulletins')
         hr
       = search_form_for @q, url: url_for(controller: 'bulletins', action: 'index') do |f|
         .row.my-2
           .col-6
             = f.input :title_cont, label: false
-            .small.form-text.text-muted Искать по названию объявления
+            .small.form-text.text-muted = t('.search_by_name')
           .col-3
             = f.input :category_id_eq, as: :select, collection: Category.all, label: false
-            .small.form-text.text-muted По состоянию
+            .small.form-text.text-muted = t('.search_by_category')
           .col-3
-            = f.submit 'Искать', class: 'btn btn-primary me-2'
-            = link_to 'Сброс', url_for, class: 'btn btn-outline-primary'
+            = f.submit t('.search'), class: 'btn btn-primary me-2'
+            = link_to t('.reset'), url_for, class: 'btn btn-outline-primary'
       .row.mt-2
         - @bulletins.each do |bulletin|
           .col-3.pt-2

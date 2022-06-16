@@ -1,18 +1,18 @@
-h1 class='h2 mb-4' Пользователи
+h1 class='h2 mb-4' = t('.users')
 .row.mt-2
   table.table.table-borderless
     thead
       tr
-        th Имя
-        th Email
-        th Статус
-        th Действия
+        th = t('.name')
+        th = t('.email')
+        th = t('.status')
+        th = t('.actions')
     tbody
       - @users.each do |user|
         tr
           td = user.name
           td = user.email
-          td = user.admin? ? 'Администратор' : 'Пользователь'
+          td = user.admin? ? t('.administrator') : t('.user')
           td
-            = link_to 'Редактировать', edit_admin_user_path(user), class: 'me-2'
-            = link_to 'Удалить', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger'
+            = link_to t('.edit'), edit_admin_user_path(user), class: 'me-2'
+            = link_to t('.delete'), admin_user_path(user), method: :delete, data: { confirm: t('.are_you_sure') }, class: 'text-danger'

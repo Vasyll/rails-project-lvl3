@@ -1,6 +1,0 @@
-en:
-  web:
-    auth:
-      collback:
-        failure: Authentication error
-        success: Successfully
