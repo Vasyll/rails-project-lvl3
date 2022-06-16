@@ -1,0 +1,23 @@
+ru:
+  web:
+    admin:
+      bulletins:
+        archive:
+          success: Объявление было успешно заархивировано
+        publish:
+          success: Объявление опубликовано
+        reject:
+          success: Объявление возвращено на доработку
+      categories:
+      users:
+    auth:
+    bulletins:
+      archive:
+        success: Объявление отправлено в архив
+      create:
+        success: Объявление создано
+      to_moderate:
+        success: Объявление отправлено на модерацию
+      update:
+        success: Объявление обновлено
+    profiles:

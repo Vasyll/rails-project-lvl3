@@ -11,13 +11,13 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def new
-    return redirect_to root_path, alert: t('.failure') unless signed_in?
+    return redirect_to root_path unless signed_in?
 
     @bulletin = current_user.bulletins.build
   end
 
   def create
-    return redirect_to root_path, alert: t('.failure') unless signed_in?
+    return redirect_to root_path unless signed_in?
 
     @bulletin = current_user.bulletins.build(bulletin_params)
 
@@ -29,13 +29,13 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def edit
-    return redirect_to root_path, alert: t('.failure') unless signed_in?
+    return redirect_to root_path unless signed_in?
 
     @bulletin = Bulletin.find(params[:id])
   end
 
   def update
-    return redirect_to root_path, alert: t('.failure') unless signed_in?
+    return redirect_to root_path unless signed_in?
 
     @bulletin = Bulletin.find(params[:id])
 
