@@ -1,2 +1,3 @@
-h1 class='h2 mb-4' Редактировать пользователя
+h1 class='h2 mb-4' = t('.edit_user')
+p = @user.name
 == render 'form', user: @user, url: admin_user_path

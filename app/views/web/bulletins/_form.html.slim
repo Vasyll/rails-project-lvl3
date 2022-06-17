@@ -1,12 +1,14 @@
 = simple_form_for bulletin do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-
-  = f.input :title, class: 'mb-3'
-  = f.input :description, class: 'mb-3'
-  = f.association :category, class: 'mb-3'
+  .mb-3
+    = f.input :title
+  .mb-3
+    = f.input :description
+  .mb-3
+    = f.association :category
   - if bulletin.image_attachment
-    = image_tag bulletin.image, class: 'img-thumbnail mb-3'
+    = image_tag bulletin.image, class: 'img-thumbnail mb-3', width: 100
   = f.input :image, required: true do
     = f.file_field :image, class: 'form-control mb-3'
   = f.button :submit, class: 'btn btn-primary mb-3'
