@@ -3,7 +3,7 @@
 class Web::BulletinsController < Web::ApplicationController
   def index
     @q = Bulletin.all.order(created_at: :desc).ransack(params[:q])
-    @bulletins = @q.result
+    @bulletins = @q.result.page(params[:page]).per(16)
   end
 
   def show

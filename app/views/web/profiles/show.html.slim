@@ -8,11 +8,9 @@
       = search_form_for @q, url: url_for(controller: 'profiles', action: 'show') do |f|
         .row.my-2
           .col-6
-            = f.input :title_cont, label: false
-            .small.form-text.text-muted = t('.search_by_name')
+            = f.input :title_cont, label: false, hint: t('.search_by_name')
           .col-3
-            = f.input :state_eq, as: :select, collection: Bulletin.aasm.states.map(&:display_name), label: false
-            .small.form-text.text-muted = t('.search_by_state')
+            = f.input :state_eq, as: :select, collection: Bulletin.aasm.states_for_select, label: false, hint: t('.search_by_state')
           .col-3
             = f.submit t('.search'), class: 'btn btn-primary me-2'
             = link_to t('.reset'), url_for, class: 'btn btn-outline-primary'
@@ -37,3 +35,4 @@
                     = link_to t('.to_moderation'), to_moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
                   - unless bulletin.archived?
                     = link_to t('.archive'), archive_bulletin_path(bulletin), method: :patch, data: { confirm: t('.confirm_archive') }, class: 'text-danger'
+        = paginate @bulletins, theme: 'bootstrap-5'

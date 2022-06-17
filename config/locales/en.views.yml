@@ -1,5 +1,60 @@
 ru:
   web:
+    admin:
+      bulletins:
+        index:
+          actions: Actions
+          archive: Archive
+          bulletins: Bulletins
+          condition: Condition
+          confirm_archive: Confirm archive
+          date_of_publication: Date of publication
+          name: Name
+          reset: Reset
+          search: Search
+          search_by_name: Search by name
+          search_by_state: Search by state
+          show: Show
+      categories:
+        edit:
+          edit_category: Edit category
+        index:
+          actions: Actions
+          add_category: Add category
+          are_you_sure: Are you sure
+          categories: Categories
+          delete: Delete
+          edit: Edit
+          id: Id
+          name: Name
+        new:
+          new_category: New category
+      home:
+        index:
+          actions: Actions
+          archive: Archive
+          bulletins_in_moderation: Bulletins in moderation
+          confirm_archive: Confirm archive
+          confirm_publish: Confirm publish
+          confirm_reject: Confirm reject
+          date_of_publication: Date of publication
+          name: Name
+          publish: Publish
+          reject: Reject
+      users:
+        edit:
+          edit_user: Edit user
+        index:
+          actions: Actions
+          administrator: Administrator
+          are_you_sure: Are you sure?
+          delete: Delete
+          edit: Edit
+          email: Email
+          name: Name
+          status: Status
+          user: User
+          users: Users
     bulletins:
       edit:
         edit_bulletin: Edit bulletin

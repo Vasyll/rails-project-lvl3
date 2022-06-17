@@ -15,3 +15,4 @@ h1 class='h2 mb-4' = t('.bulletins_in_moderation')
             = link_to t('.publish'), publish_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('.confirm_publish') }, class: 'me-2'
             = link_to t('.reject'), reject_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('.confirm_reject') }, class: 'me-2'
             = link_to t('.archive'), archive_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('.confirm_archive') }, class: 'text-danger'
+  = paginate @bulletins, theme: 'bootstrap-5'

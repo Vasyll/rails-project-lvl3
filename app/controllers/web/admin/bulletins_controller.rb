@@ -3,7 +3,7 @@
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def index
     @q = Bulletin.all.ransack(params[:q])
-    @bulletins = @q.result
+    @bulletins = @q.result.page(params[:page])
   end
 
   def publish
