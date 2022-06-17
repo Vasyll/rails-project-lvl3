@@ -1,0 +1,22 @@
+ru:
+  layouts:
+    shared:
+      footer:
+        hexlet: Хекслет
+      head:
+        title: Доска объявлений
+      nav:
+        add: Добавить
+        admin: Админка
+        bulletin_board: Доска объявлений
+        home: Главная
+        my_bulletins: Мои объявления
+        sign_in: Войти
+        sign_out: Выйти
+    web:
+      admin:
+        application:
+          all_bulletins: Все объявления
+          all_category: Все категории
+          all_users: Все пользователи
+          bulletins_under_moderation: Объявления на модерации

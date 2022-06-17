@@ -1,0 +1,22 @@
+en:
+  layouts:
+    shared:
+      head:
+        title: Bulletin board
+      footer:
+        hexlet: Hexlet
+      nav:
+        add: Add
+        admin: Admin
+        bulletin_board: Bulletin board
+        home: Home
+        my_bulletins: My bulletins
+        sign_in: Sign in
+        sign_out: Sign out
+    web:
+      admin:
+        application:
+          all_bulletins: All bulletins
+          all_category: All category
+          all_users: All users
+          bulletins_under_moderation: Bulletins under moderation
