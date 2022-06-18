@@ -11,13 +11,13 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def new
-    return redirect_to root_path unless signed_in?
+    authorize Bulletin
 
     @bulletin = current_user.bulletins.build
   end
 
   def create
-    return redirect_to root_path unless signed_in?
+    authorize Bulletin
 
     @bulletin = current_user.bulletins.build(bulletin_params)
 
@@ -29,15 +29,13 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def edit
-    return redirect_to root_path unless signed_in?
-
     @bulletin = Bulletin.find(params[:id])
+    authorize @bulletin
   end
 
   def update
-    return redirect_to root_path unless signed_in?
-
     @bulletin = Bulletin.find(params[:id])
+    authorize @bulletin
 
     if @bulletin.update(bulletin_params)
       redirect_to bulletin_path(@bulletin), notice: t('.success')
@@ -48,6 +46,8 @@ class Web::BulletinsController < Web::ApplicationController
 
   def to_moderate
     @bulletin = Bulletin.find params[:id]
+    authorize @bulletin, :update?
+
     if @bulletin.to_moderate!
       redirect_to profile_path, notice: t('.success')
     else
@@ -57,6 +57,8 @@ class Web::BulletinsController < Web::ApplicationController
 
   def archive
     @bulletin = Bulletin.find params[:id]
+    authorize @bulletin, :update?
+
     if @bulletin.archive!
       redirect_to profile_path, notice: t('.success')
     else

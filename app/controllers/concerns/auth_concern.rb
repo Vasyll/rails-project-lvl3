@@ -18,13 +18,10 @@ module AuthConcern
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
-  def authenticate_user!
-    return if signed_in?
-
-    redirect_to root_path, alert: t('.failure')
-  end
-
   def authenticate_admin!
-    return redirect_to root_path unless current_user.admin?
+    return if current_user&.admin?
+
+    flash[:error] = t('forbidden')
+    redirect_to root_path
   end
-end
+    end

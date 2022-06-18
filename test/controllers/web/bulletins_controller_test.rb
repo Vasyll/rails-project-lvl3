@@ -25,8 +25,9 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest should raise error from new' do
-    get new_bulletin_path
-    assert_redirected_to root_path
+    assert_raises(Pundit::NotAuthorizedError) do
+      get new_bulletin_path
+    end
   end
 
   test 'signin user should get new' do
@@ -36,12 +37,11 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest cant create bulletin' do
-    bulletins_count = Bulletin.count
-
-    post bulletins_path, params: { bulletin: @attrs }
-
-    assert { Bulletin.count == bulletins_count }
-    assert_redirected_to root_path
+    assert_no_difference('Bulletin.count') do
+      assert_raises(Pundit::NotAuthorizedError) do
+        post bulletins_path, params: { bulletin: @attrs }
+      end
+    end
   end
 
   test 'signed user can create bulletin' do
@@ -56,8 +56,9 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest should raise error from edit' do
-    get edit_bulletin_path @bulletin
-    assert_redirected_to root_path
+    assert_raises(Pundit::NotAuthorizedError) do
+      get edit_bulletin_path @bulletin
+    end
   end
 
   test 'signin user should get edit' do
@@ -67,17 +68,16 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest cant update bulletin' do
-    patch bulletin_path(@bulletin), params: { bulletin: @attrs }
+    assert_raises(Pundit::NotAuthorizedError) do
+      patch bulletin_path(@bulletin), params: { bulletin: @attrs }
+    end
 
     bulletin = Bulletin.find_by @bulletin.attributes
     assert bulletin
-
-    assert_redirected_to root_path
   end
 
   test 'signed user can update bulletin' do
     sign_in @user
-
     patch bulletin_path(@bulletin), params: { bulletin: @attrs }
 
     bulletin = Bulletin.find_by @attrs.except(:image)
