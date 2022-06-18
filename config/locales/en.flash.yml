@@ -1,4 +1,6 @@
 en:
+  application:
+    not_authorized: You are not authorized to perform this action
   web:
     admin:
       bulletins:
