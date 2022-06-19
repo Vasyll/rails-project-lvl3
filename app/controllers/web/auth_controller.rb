@@ -11,7 +11,7 @@ class Web::AuthController < Web::ApplicationController
       return
     end
 
-    user = User.new name: auth[:info][:name], email: auth[:info][:email]
+    user = User.new name: auth[:info][:name], email: auth[:info][:email].downcase
 
     if user.save
       sign_in user

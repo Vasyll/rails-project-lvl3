@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Web::BulletinsController < Web::ApplicationController
+  after_action :verify_authorized, except: %i[index show]
+
   def index
     @q = Bulletin.all.order(created_at: :desc).ransack(params[:q])
     @bulletins = @q.result.with_attached_image.page(params[:page]).per(16)

@@ -25,9 +25,8 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest should raise error from new' do
-    assert_raises(Pundit::NotAuthorizedError) do
-      get new_bulletin_path
-    end
+    get new_bulletin_path
+    assert_redirected_to root_path
   end
 
   test 'signin user should get new' do
@@ -38,9 +37,8 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
 
   test 'guest cant create bulletin' do
     assert_no_difference('Bulletin.count') do
-      assert_raises(Pundit::NotAuthorizedError) do
-        post bulletins_path, params: { bulletin: @attrs }
-      end
+      post bulletins_path, params: { bulletin: @attrs }
+      assert_redirected_to root_path
     end
   end
 
@@ -56,9 +54,8 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest should raise error from edit' do
-    assert_raises(Pundit::NotAuthorizedError) do
-      get edit_bulletin_path @bulletin
-    end
+    get edit_bulletin_path @bulletin
+    assert_redirected_to root_path
   end
 
   test 'signin user should get edit' do
@@ -68,9 +65,8 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest cant update bulletin' do
-    assert_raises(Pundit::NotAuthorizedError) do
-      patch bulletin_path(@bulletin), params: { bulletin: @attrs }
-    end
+    patch bulletin_path(@bulletin), params: { bulletin: @attrs }
+    assert_redirected_to root_path
 
     bulletin = Bulletin.find_by @bulletin.attributes
     assert bulletin
