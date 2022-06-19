@@ -20,8 +20,11 @@ You need to have administrator rights to fully test the application. To do this,
 $ bin/rails db:seed
 
 In the root of the application, create an .env file, which you fill with data from Github Apps:
+
+``` sh
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
+```
 
 After that, start the server with the command:
 

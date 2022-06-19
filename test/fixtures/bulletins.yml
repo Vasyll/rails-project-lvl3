@@ -13,3 +13,38 @@ two:
   user: two
   category: two
   state: draft
+
+draft:
+  title: MyString
+  description: MyText
+  user: one
+  category: one
+  state: draft
+
+under_moderation:
+  title: MyString
+  description: MyText
+  user: one
+  category: one
+  state: under_moderation
+
+published:
+  title: MyString
+  description: MyText
+  user: one
+  category: one
+  state: published
+
+rejected:
+  title: MyString
+  description: MyText
+  user: one
+  category: one
+  state: rejected
+
+archived:
+  title: MyString
+  description: MyText
+  user: one
+  category: one
+  state: archived
