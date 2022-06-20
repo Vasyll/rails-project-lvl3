@@ -2,13 +2,12 @@
 
 require 'test_helper'
 
-class UsersControllerTest < ActionDispatch::IntegrationTest
+class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
     @admin = users(:two)
     @attrs = {
-      name: Faker::Name.name,
-      email: Faker::Internet.email
+      admin: true
     }
   end
 
@@ -17,19 +16,35 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
-  test 'guest cant update user' do
-    patch admin_user_path(@user), params: { user: @attrs }
+  test 'user cant edit user' do
+    sign_in @user
+    get edit_admin_user_path @user
     assert_redirected_to root_path
-
-    user = User.find_by @user.attributes
-    assert user
   end
 
-  test 'guest cant destroy user' do
-    delete admin_user_path(@user)
-    assert_redirected_to root_path
+  test 'admin can edit user' do
+    sign_in @admin
+    get edit_admin_user_path @user
+    assert_response :success
+  end
 
-    user = User.find_by @user.attributes
-    assert user
+  test 'admin can update user' do
+    sign_in @admin
+
+    assert_not @user.admin?
+    patch admin_user_path(@user), params: { user: @attrs }
+
+    @user.reload
+    assert @user.admin?
+    assert_redirected_to admin_users_path
+  end
+
+  test 'admin can destroy user' do
+    sign_in @admin
+
+    delete admin_user_path(@user)
+
+    assert { !User.find_by @user.attributes }
+    assert_redirected_to admin_users_path
   end
 end

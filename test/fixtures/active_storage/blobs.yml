@@ -1,0 +1,8 @@
+image_blob:
+  key: 2k9pmoww7oarmsxw6wwhorou8sak
+  filename: bulletin_4.jpg
+  content_type: image/jpeg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: 1000
+  checksum: aq49jX7+Ck+9i7d3JbSwPg==
+  service_name: local

@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    flash[:warning] = t('.not_authorized')
+    flash[:error] = t('not_authorized')
     redirect_to(request.referer || root_path)
   end
 end

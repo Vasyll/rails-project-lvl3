@@ -1,6 +1,5 @@
 ru:
-  application:
-    not_authorized: Вы не уполномочены выполнять это действие
+  not_authorized: Вы не уполномочены выполнять это действие
   web:
     admin:
       bulletins:

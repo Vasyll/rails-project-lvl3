@@ -6,7 +6,7 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    author? || record.published?
   end
 
   def create?
