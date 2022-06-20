@@ -13,3 +13,10 @@ two:
   user: two
   category: two
   state: draft
+
+three:
+  title: MyString
+  description: MyText
+  user: two
+  category: two
+  state: under_moderation

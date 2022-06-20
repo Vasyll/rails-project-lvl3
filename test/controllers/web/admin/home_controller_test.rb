@@ -7,7 +7,7 @@ class Web::Admin::HomeControllerTest < ActionDispatch::IntegrationTest
     @admin = users(:two)
   end
 
-  test 'admin can should get index' do
+  test 'admin can get admin root' do
     sign_in @admin
     get admin_root_path
     assert_response :success

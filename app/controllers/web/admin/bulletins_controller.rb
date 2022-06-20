@@ -9,7 +9,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def publish
     @bulletin = Bulletin.find params[:id]
     if @bulletin.publish!
-      redirect_to admin_root_path, notice: t('.success')
+      redirect_to request.referer || admin_root_path, notice: t('.success')
     else
       redirect_to admin_root_path, notice: t('.failure')
     end
@@ -18,7 +18,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def reject
     @bulletin = Bulletin.find params[:id]
     if @bulletin.reject!
-      redirect_to admin_root_path, notice: t('.success')
+      redirect_to request.referer || admin_root_path, notice: t('.success')
     else
       redirect_to admin_root_path, notice: t('.failure')
     end
@@ -27,7 +27,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def archive
     @bulletin = Bulletin.find params[:id]
     if @bulletin.archive!
-      redirect_to admin_root_path, notice: t('.success')
+      redirect_to request.referer || admin_root_path, notice: t('.success')
     else
       redirect_to admin_root_path, notice: t('.failure')
     end

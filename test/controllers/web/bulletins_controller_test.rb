@@ -15,7 +15,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     }
   end
 
-  test 'should get index bulletins' do
+  test 'should get bulletins index' do
     get bulletins_path
     assert_response :success
   end
