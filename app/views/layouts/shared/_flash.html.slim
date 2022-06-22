@@ -1,8 +1,10 @@
-- if flash.any?
-  .container.mb-2
-    .d-flex.flex-wrap.align-items-center.py-2.border-bottom
-      - flash.each do |type, msg|
-        - if type == 'alert'
-          .alert.alert-danger = msg
-        - else
-          .alert.alert-info = msg
+- flash.any?
+  - flash.each do |type, msg|
+    - if type == 'alert'
+      .container.alert.alert-danger.alert-dismissible.fade.show role='alert'
+        == msg
+        button.btn-close type='button' aria-label='Close' data-bs-dismiss='alert'
+    - else
+      .container.alert.alert-info.alert-dismissible.fade.show role='alert'
+        == msg
+        button.btn-close type='button' aria-label='Close' data-bs-dismiss='alert'

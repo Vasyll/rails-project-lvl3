@@ -11,24 +11,30 @@ You can test the Bulletin board here: https://rails-project-lvl3-403793.herokuap
 
 # Installation
 
+```
 $ git clone https://github.com/Vasyll/rails-project-lvl3
 
 $ make setup
+```
 
 You need to have administrator rights to fully test the application. To do this, edit the email (lowercase) and user name in db/seeds.rb 
 
+```
 $ bin/rails db:seed
+```
 
 In the root of the application, create an .env file, which you fill with data from Github Apps:
 
-``` sh
+```
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
 ```
 
 After that, start the server with the command:
 
+```
 $ bin/rails s
+```
 
 # Contributing and license
 
