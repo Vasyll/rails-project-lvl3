@@ -9,6 +9,5 @@
     = f.association :category
   - if bulletin.image_attachment
     = image_tag bulletin.image, class: 'img-thumbnail mb-3', width: 100
-  = f.input :image do
-    = f.file_field :image, class: 'form-control mb-3'
+  = f.input :image, as: :file, input_html: { class: 'form-control mb-3' }
   = f.button :submit, class: 'btn btn-primary mb-3'
