@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'aasm'
+gem 'aws-sdk-s3'
 gem 'active_storage_validations'
 gem 'bootstrap5-kaminari-views'
 gem 'faker'
