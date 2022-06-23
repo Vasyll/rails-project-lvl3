@@ -1,10 +1,7 @@
-- flash.any?
+- if flash.any?
   - flash.each do |type, msg|
-    - if type == 'alert'
-      .container.alert.alert-danger.alert-dismissible.fade.show role='alert'
-        == msg
-        button.btn-close type='button' aria-label='Close' data-bs-dismiss='alert'
-    - else
-      .container.alert.alert-info.alert-dismissible.fade.show role='alert'
-        == msg
-        button.btn-close type='button' aria-label='Close' data-bs-dismiss='alert'
+    - alert_name = 'alert-info'
+    - alert_name = 'alert-danger' if type == 'alert'
+    .container.alert.alert-dismissible.fade.show class=alert_name role='alert'
+      = msg
+      button.btn-close type='button' aria-label='Close' data-bs-dismiss='alert'
