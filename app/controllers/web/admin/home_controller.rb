@@ -2,6 +2,6 @@
 
 class Web::Admin::HomeController < Web::Admin::ApplicationController
   def index
-    @bulletins = Bulletin.where(state: :under_moderation).page(params[:page])
+    @bulletins = Bulletin.where(state: :under_moderation).order(created_at: :desc).page(params[:page])
   end
 end
