@@ -36,7 +36,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
     post bulletins_path, params: { bulletin: @attrs }
     bulletin = Bulletin.find_by @attrs.except(:image)
-    assert bulletin
+    assert { bulletin }
     assert_redirected_to bulletin_url(bulletin)
   end
 
@@ -56,7 +56,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
     patch bulletin_path(@bulletin), params: { bulletin: @attrs }
     bulletin = Bulletin.find_by @attrs.except(:image)
-    assert bulletin
+    assert { bulletin }
     assert_redirected_to bulletin_url(bulletin)
   end
 
@@ -65,14 +65,14 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     patch bulletin_path(@bulletin_user2), params: { bulletin: @attrs }
     assert_redirected_to root_path
     bulletin = Bulletin.find_by @bulletin_user2.attributes
-    assert bulletin
+    assert { bulletin }
   end
 
   test 'signed user can to moderate his bulletin' do
     sign_in @user
     patch to_moderate_bulletin_path(@bulletin)
     @bulletin.reload
-    assert @bulletin.under_moderation?
+    assert { @bulletin.under_moderation? }
     assert_redirected_to profile_path
   end
 
@@ -80,14 +80,14 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
     patch to_moderate_bulletin_path(@bulletin_user2)
     bulletin = Bulletin.find_by @bulletin_user2.attributes
-    assert bulletin.draft?
+    assert { bulletin.draft? }
   end
 
   test 'signed user can archive his bulletin' do
     sign_in @user
     patch archive_bulletin_path(@bulletin)
     @bulletin.reload
-    assert @bulletin.archived?
+    assert { @bulletin.archived? }
     assert_redirected_to profile_path
   end
 
@@ -95,6 +95,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
     patch archive_bulletin_path(@bulletin_user2)
     bulletin = Bulletin.find_by @bulletin_user2.attributes
-    assert bulletin.draft?
+    assert { bulletin.draft? }
   end
 end

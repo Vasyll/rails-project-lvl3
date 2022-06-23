@@ -35,7 +35,7 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     patch admin_user_path(@user), params: { user: @attrs }
 
     @user.reload
-    assert @user.admin?
+    assert { @user.admin? }
     assert_redirected_to admin_users_path
   end
 

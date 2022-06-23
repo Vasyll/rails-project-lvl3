@@ -33,20 +33,20 @@ class Web::BulletinsGuestControllerTest < ActionDispatch::IntegrationTest
     patch bulletin_path(@bulletin), params: { bulletin: @attrs }
     assert_redirected_to root_path
     bulletin = Bulletin.find_by @bulletin.attributes
-    assert bulletin
+    assert { bulletin }
   end
 
   test 'guest cant to moderate bulletin' do
     patch to_moderate_bulletin_path(@bulletin)
     assert_redirected_to root_path
     bulletin = Bulletin.find_by @bulletin.attributes
-    assert bulletin.draft?
+    assert { bulletin.draft? }
   end
 
   test 'guest cant archive bulletin' do
     patch archive_bulletin_path(@bulletin)
     assert_redirected_to root_path
     bulletin = Bulletin.find_by @bulletin.attributes
-    assert bulletin.draft?
+    assert { bulletin.draft? }
   end
 end

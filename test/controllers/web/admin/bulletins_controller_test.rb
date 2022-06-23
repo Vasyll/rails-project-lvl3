@@ -18,7 +18,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     sign_in @admin
     patch publish_admin_bulletin_path(@bulletin)
     @bulletin.reload
-    assert @bulletin.published?
+    assert { @bulletin.published? }
     assert_redirected_to admin_root_path
   end
 
@@ -26,7 +26,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     sign_in @admin
     patch reject_admin_bulletin_path(@bulletin)
     @bulletin.reload
-    assert @bulletin.rejected?
+    assert { @bulletin.rejected? }
     assert_redirected_to admin_root_path
   end
 
@@ -34,7 +34,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     sign_in @admin
     patch archive_admin_bulletin_path(@bulletin)
     @bulletin.reload
-    assert @bulletin.archived?
+    assert { @bulletin.archived? }
     assert_redirected_to admin_root_path
   end
 end

@@ -27,7 +27,7 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     sign_in @admin
     post admin_categories_path, params: { category: @attrs }
     category = Category.find_by @attrs
-    assert category
+    assert { category }
     assert_redirected_to admin_categories_path
   end
 
@@ -41,7 +41,7 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     sign_in @admin
     patch admin_category_path, params: { category: @attrs }
     category = Category.find_by @attrs
-    assert category
+    assert { category }
     assert_redirected_to admin_categories_path
   end
 
