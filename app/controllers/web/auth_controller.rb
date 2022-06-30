@@ -3,15 +3,8 @@
 class Web::AuthController < Web::ApplicationController
   def callback
     email = auth[:info][:email].downcase
-    existing_user = User.find_by(email: email)
-
-    if existing_user
-      sign_in existing_user
-      redirect_to root_path, notice: t('.success')
-      return
-    end
-
-    user = User.new name: auth[:info][:name], email: auth[:info][:email].downcase
+    user = User.find_or_initialize_by(email: email)
+    user.name = auth[:info][:name]
 
     if user.save
       sign_in user
