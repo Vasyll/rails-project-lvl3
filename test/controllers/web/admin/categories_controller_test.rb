@@ -49,7 +49,7 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     sign_in @admin
     delete admin_category_path(@category)
 
-    assert { !Category.find_by @category.attributes }
+    assert { !Category.find_by id: @category.id }
     assert_redirected_to admin_categories_path
   end
 end

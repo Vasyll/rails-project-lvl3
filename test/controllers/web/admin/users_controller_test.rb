@@ -44,7 +44,7 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
 
     delete admin_user_path(@user)
 
-    assert { !User.find_by @user.attributes }
+    assert { !User.find_by id: @user.id }
     assert_redirected_to admin_users_path
   end
 end
