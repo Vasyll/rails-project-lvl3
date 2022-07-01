@@ -39,7 +39,7 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   def update
     sign_in @admin
-    patch admin_category_path, params: { category: @attrs }
+    patch admin_category_path(@category), params: { category: @attrs }
     category = Category.find_by @attrs
     assert { category }
     assert_redirected_to admin_categories_path
