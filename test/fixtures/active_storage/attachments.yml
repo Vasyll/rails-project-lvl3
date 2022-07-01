@@ -10,5 +10,5 @@ two_image:
 
 three_image:
   name: image
-  record: three (Bulletin)
+  record: under_moderation (Bulletin)
   blob: image_blob

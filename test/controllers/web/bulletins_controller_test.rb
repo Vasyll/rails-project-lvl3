@@ -6,7 +6,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @bulletin = bulletins(:one)
     @bulletin_user2 = bulletins(:two)
-    @user = users(:one)
+    @user = users(:user)
     @attrs = {
       title: Faker::Book.title,
       description: Faker::Lorem.paragraph_by_chars(number: 200),

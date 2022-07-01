@@ -4,7 +4,7 @@ require 'test_helper'
 
 class Web::Admin::HomeControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @admin = users(:two)
+    @admin = users(:admin)
   end
 
   test 'admin can get admin root' do

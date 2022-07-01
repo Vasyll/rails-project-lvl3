@@ -4,8 +4,8 @@ require 'test_helper'
 
 class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
-    @admin = users(:two)
+    @user = users(:user)
+    @admin = users(:admin)
     @attrs = {
       admin: true
     }

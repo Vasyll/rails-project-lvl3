@@ -3,20 +3,20 @@
 one:
   title: MyString
   description: MyText
-  user: one
+  user: user
   category: one
   state: draft
 
 two:
   title: MyString
   description: MyText
-  user: two
+  user: admin
   category: two
   state: draft
 
-three:
+under_moderation:
   title: MyString
   description: MyText
-  user: two
+  user: admin
   category: two
   state: under_moderation

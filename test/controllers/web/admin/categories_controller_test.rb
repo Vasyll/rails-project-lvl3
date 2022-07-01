@@ -4,7 +4,7 @@ require 'test_helper'
 
 class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @admin = users(:two)
+    @admin = users(:admin)
     @category = categories(:one)
     @attrs = {
       name: Faker::Book.title

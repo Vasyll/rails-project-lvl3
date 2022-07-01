@@ -4,7 +4,7 @@ require 'test_helper'
 
 class Web::ProfilesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
+    @user = users(:user)
   end
 
   test 'signed user can show profile' do
