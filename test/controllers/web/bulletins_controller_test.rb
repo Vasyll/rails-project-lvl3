@@ -79,8 +79,8 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'signed user cant to moderate not his bulletin' do
     sign_in @user
     patch to_moderate_bulletin_path(@bulletin_user2)
-    bulletin = Bulletin.find_by @bulletin_user2.attributes
-    assert { bulletin.draft? }
+    @bulletin.reload
+    assert { @bulletin.draft? }
   end
 
   test 'signed user can archive his bulletin' do
@@ -94,7 +94,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'signed user cant archive not his bulletin' do
     sign_in @user
     patch archive_bulletin_path(@bulletin_user2)
-    bulletin = Bulletin.find_by @bulletin_user2.attributes
-    assert { bulletin.draft? }
+    @bulletin.reload
+    assert { @bulletin.draft? }
   end
 end
