@@ -31,8 +31,8 @@
                 td
                   = link_to t('.show'), bulletin_path(bulletin), class: 'me-2'
                   = link_to t('.edit'), edit_bulletin_path(bulletin), class: 'me-2'
-                  - if bulletin.draft? || bulletin.rejected?
+                  - if bulletin.may_to_moderate?
                     = link_to t('.to_moderation'), to_moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
-                  - unless bulletin.archived?
+                  - if bulletin.may_archive?
                     = link_to t('.archive'), archive_bulletin_path(bulletin), method: :patch, data: { confirm: t('.confirm_archive') }, class: 'text-danger'
         = paginate @bulletins, theme: 'bootstrap-5'
