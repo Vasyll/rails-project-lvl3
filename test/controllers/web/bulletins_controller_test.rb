@@ -5,7 +5,7 @@ require 'test_helper'
 class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @bulletin = bulletins(:one)
-    @bulletin_user2 = bulletins(:two)
+    @other_user_bulletin = bulletins(:two)
     @user = users(:user)
     @attrs = {
       title: Faker::Book.title,
@@ -48,7 +48,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
 
   test 'signed user cant edit not his bulletin' do
     sign_in @user
-    get edit_bulletin_path @bulletin_user2
+    get edit_bulletin_path @other_user_bulletin
     assert_redirected_to root_path
   end
 
@@ -62,9 +62,9 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
 
   test 'signed user cant update not his bulletin' do
     sign_in @user
-    patch bulletin_path(@bulletin_user2), params: { bulletin: @attrs }
+    patch bulletin_path(@other_user_bulletin), params: { bulletin: @attrs }
     assert_redirected_to root_path
-    bulletin = Bulletin.find_by @bulletin_user2.attributes
+    bulletin = Bulletin.find_by @other_user_bulletin.attributes
     assert { bulletin }
   end
 
@@ -78,9 +78,9 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
 
   test 'signed user cant to moderate not his bulletin' do
     sign_in @user
-    patch to_moderate_bulletin_path(@bulletin_user2)
-    @bulletin.reload
-    assert { @bulletin.draft? }
+    patch to_moderate_bulletin_path(@other_user_bulletin)
+    @other_user_bulletin.reload
+    assert { @other_user_bulletin.draft? }
   end
 
   test 'signed user can archive his bulletin' do
@@ -93,8 +93,8 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
 
   test 'signed user cant archive not his bulletin' do
     sign_in @user
-    patch archive_bulletin_path(@bulletin_user2)
-    @bulletin.reload
-    assert { @bulletin.draft? }
+    patch archive_bulletin_path(@other_user_bulletin)
+    @other_user_bulletin.reload
+    assert { @other_user_bulletin.draft? }
   end
 end
